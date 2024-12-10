@@ -1,8 +1,18 @@
 import streamlit as st
 import openai
+from dotenv import load_dotenv
+import os
 
-# Set up OpenAI API key
-openai.api_key = "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"  # Replace with your OpenAI API key
+# Load environment variables
+load_dotenv()
+
+# Debugging: Check if the key is loaded
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    print("API key not loaded. Check your .env file and ensure it is in the correct location.")
+else:
+    print("API key loaded successfully.")
+
 
 # Streamlit app title and description
 st.title("Custom Email Draft Generator")
